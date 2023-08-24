@@ -1,0 +1,32 @@
+.customer-list {
+    max-height: 500px; /* Set a maximum height to enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+  }
+  
+  .customer-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    cursor: pointer;
+    background-color: #f5f6fa;
+  }
+  
+  .customer-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .customer-details h3 {
+    margin: 0;
+  }
+  
+  .customer-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
