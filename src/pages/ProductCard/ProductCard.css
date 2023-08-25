@@ -1,37 +1,71 @@
-.product-card {
-    border: 1px solid #ddd;
-    padding: 16px;
-    margin: 16px;
-    text-align: center;
+/* Styling for the ProductCard component */
+.card-wrapper {
+  margin: 16px;
+  display: flex;
+  justify-content: space-between; /* Add space between the cards */
+  flex-wrap: wrap; /* Allow cards to wrap to the next row */
+}
+
+.card {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  overflow: hidden;
+  width: 100%; /* Display two cards in one row with a little gap */
+  max-width: 300px;
+  margin: 8px; /* Add margin for spacing between cards */
+  box-sizing: border-box; /* Include border and padding in the width calculation */
+}
+
+.card__inner {
+  position: relative;
+}
+
+.card__media {
+  overflow: hidden;
+}
+
+.card__media img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card__content {
+  padding: 16px;
+  text-align: center;
+}
+
+.card__heading {
+  margin: 8px 0;
+  font-size: 1.2rem;
+}
+
+.ClsLTYWidget {
+  display: block;
+  margin-top: 4px;
+  font-size: 1rem;
+  color: #888;
+}
+
+.card_new {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.CL_bestseller,
+.CL_newproduct {
+  /* Add styles for the badge icons */
+}
+
+/* Responsive styles */
+
+@media screen and (max-width: 768px) {
+  .card-wrapper {
+    justify-content: center;
   }
   
-  .product-image {
-    max-width: 100%;
-    height: auto;
+  .card {
+    max-width: 50%; /* Cards take full width on smaller screens */
+    width: 100%; /* Ensure cards stack vertically */
   }
-  
-  .product-name {
-    margin-top: 8px;
-    font-size: 1.2rem;
-  }
-  
-  .product-price {
-    margin-top: 4px;
-    font-size: 1rem;
-    color: #888;
-  }
-  
-  .add-to-cart {
-    margin-top: 8px;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .add-to-cart:hover {
-    background-color: #0056b3;
-  }
-  
+}

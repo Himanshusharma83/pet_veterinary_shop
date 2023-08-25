@@ -1,15 +1,16 @@
-
 .main-content {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-left: 5%;
+  /* margin-left: 5%; Remove this line */
   width: 90%;
   height: 95%;
   margin-top: 1%;
- 
+  margin-left: 6; /* Add this line to push content to the right */
 }
+
+
 
 .graph {
   margin-bottom: 20px;

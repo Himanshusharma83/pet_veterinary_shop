@@ -1,33 +1,15 @@
-
-import React, { useEffect } from 'react';
-
-
-import MainContent from './MainContent';
-import DashboardItem from './DashboardItem';
-// import Graph from './Graph'; // Create a Graph component
-
-import './Dashboard.css';
-import CustomerList from './CustomerList';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import './Dashboard.css';
+import Sidebar from './sideBar/Sidebar';
+import MainContent from './MainContent/MainContent';
+import DashboardItem from './DashboardItem/DashboardItem';
+import CustomerList from './CustomerList';
+import ServiceList from './ServiceList';
+
 const App = () => {
-  const dashboardItems = [
-    { title: 'Total Orders', icon: '📦', value: '325' },
-    { title: 'Revenue', icon: '💰', value: '$12,500' },
-    { title: 'Products Sold', icon: '🛍️', value: '754' },
-    { title: 'Patients Fit', icon: '', value: '754' },
-    { title: 'Accident Cat', icon: '', value: '754' },
-    
-  ];
-
-
   const navigate = useNavigate();
-
-  // const handleLogout = () => {
-  //   // onLogout();
-  //   localStorage.removeItem('isLoggedIn'); // Remove login state
-  //   navigate('/loginform');
-  // };
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -36,30 +18,38 @@ const App = () => {
     }
   }, []);
 
-  
+  const [activeTab, setActiveTab] = useState('customers'); // Set the default tab to 'customers'
 
   return (
     <div className="dashboard">
-      {/* <Sidebar /> */}
+      {/* <Sidebar className="sidebar" /> */}
       <MainContent>
-    
         <div className="dashboard-content">
-          <div className="dashboard-items">
-            {dashboardItems.map((item, index) => (
-              <DashboardItem
-                key={index}
-                title={item.title}
-                icon={item.icon}
-                value={item.value}
-              />
-            ))}
+          <div className="tab-navigation">
+          
+            <button
+              className={activeTab === 'customers' ? 'active' : ''}
+              onClick={() => setActiveTab('customers')}
+            >
+             Pet Management
+            </button>
+            <button
+              className={activeTab === 'dashboard' ? 'active' : ''}
+              onClick={() => setActiveTab('dashboard')}
+            >
+              Service List
+            </button>
           </div>
-          <div className="dashboard-graph">
-            {/* <Graph />  */}
-            {/* Render the Graph component */}
+          <div className={`tab-content ${activeTab === 'dashboard' ? 'active' : ''}`}>
+            <ServiceList />
+            <div className="dashboard-items">
+              {/* Render DashboardItem components */}
+              {/* ... */}
+            </div>
+            <div className="dashboard-graph">{/* Render the Graph component */}</div>
           </div>
-          <div className="dashboard-customers">
-            <CustomerList /> {/* Render the CustomerList component */}
+          <div className={`tab-content ${activeTab === 'customers' ? 'active' : ''}`}>
+            <CustomerList />
           </div>
         </div>
       </MainContent>

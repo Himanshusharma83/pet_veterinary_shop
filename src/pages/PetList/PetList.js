@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import './PetList.css'
 
 export default function PetList() {
   const [dogs, setDogs] = useState([]);
@@ -87,7 +87,7 @@ export default function PetList() {
               </h1>
             ) : (
               <>
-                <section className="p-8 max-w-7xl mx-auto">
+                <section className="p-8 max-w-7xl mx-auto dogsection">
                   <div className="text-center">
                    
                     

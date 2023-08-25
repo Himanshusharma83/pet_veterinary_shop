@@ -1,48 +1,76 @@
-.logo{
-    width: 150px;
-    height: 30px;
-    background: none; 
+/* NavBar.css */
+/* Logo styles */
+.logo {
+  width: 150px;
+  height: auto;
 }
 
-.home:hover{
-color: orange;
+/* Home link hover */
+.home:hover {
+  color: orange;
 }
 
-.custom-navbar {
-    background-color: #333;
-    padding: 10px 0;
-  }
+/* Animal link hover */
+.animal:hover {
+  color: orange;
+}
 
-  .dashlink{
-    margin-right: 38rem;
-  }
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-  link:hover{
-   color: aqua;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
+/* Flex layout for responsiveness */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navbar link styles */
+.nav-link {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 5px;
+}
+.dashlink{
+  margin-right: 53%;
+}
+
+/* Search bar in the Navbar */
+.nav-search {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+
+/* Tablets and larger screens */
+@media screen and (min-width: 768px) {
   .nav-link {
-    color: white;
-    font-size: 18px;
-    text-decoration: none;
-    margin-right: 5px; 
+    font-size: 16px;
   }
-  
-  .nav-search {
-    display: flex;
-    align-items: center;
+}
+
+/* Desktop screens */
+@media screen and (min-width: 1200px) {
+  .nav-link {
+    font-size: 20px;
   }
-  
-  
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 767px) {
+  .dashlink {
+    margin-right: 0;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    margin: 3px;
+  }
+}

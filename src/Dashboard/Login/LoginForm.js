@@ -8,27 +8,35 @@ const LoginForm = ({ onLogin }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null); // State to track login error
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     if (!username || !password) {
       setError('Username and password are required');
       return;
     }
-  
-    // Check if entered username and password match static values
-    if (username === staticUsername && password === staticPassword) {
-      // Assuming validation is successful, call onLogin
-      onLogin();
-      localStorage.setItem('isLoggedIn', 'true'); // Store login state
-      navigate('/dashboard');
-    } else {
-      setError('Incorrect username or password');
+
+    try {
+      // Send a request to the mockapi.io API to check if the user exists by username
+      const response = await fetch(`https://64e736deb0fd9648b78f8d37.mockapi.io/pet_api/registration?username=${username}`);
+      const data = await response.json();
+
+      if (data.length > 0 && data[0].password === password) {
+        // Login successful
+        onLogin();
+        localStorage.setItem('isLoggedIn', 'true'); // Store login state
+        navigate('/dashboard');
+      } else {
+        setError('Incorrect username or password');
+      }
+    } catch (error) {
+      setError('An error occurred during login');
     }
   };
-  
-  const staticUsername = 'Himanshu';
-  const staticPassword = '12345';
+
+  const handleRegister = () => {
+    navigate('/registrationform');
+  };
 
   return (
     <div className="login-container">
@@ -60,6 +68,9 @@ const LoginForm = ({ onLogin }) => {
           </button>
           {error && <p className="error-message">{error}</p>}
         </form>
+        <button className="register-button" onClick={handleRegister}>
+          Register
+        </button>
       </div>
     </div>
   );
