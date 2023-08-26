@@ -36,25 +36,24 @@ function NavBar() {
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <img
           src="https://cdn.shopify.com/s/files/1/0086/0795/7054/files/logo_change.png?v=1682513704"
-          className="logo"
+          className="logo w-32"
           alt="logo"
         />
-        
-        <Link to="/" className="text-white text-lg font-bold home">
-          Home
-        </Link>
-        <Link to="/petlist" className="text-white text-lg font-bold animal">
-          Adopted Animal
-        </Link>
-        <Link
-          to="/dashboard"
-          className="text-white text-lg font-bold home dashlink"
-        >
-          Dashboard
-        </Link>
-       
+        <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-8">
+          <Link to="/" className="text-white text-lg font-bold home">
+            Home
+          </Link>
+          <Link to="/petlist" className="text-white text-lg font-bold animal">
+            Adopted Animal
+          </Link>
+          <Link
+            to="/dashboard"
+            className="text-white text-lg font-bold home dashlink"
+          >
+            Dashboard
+          </Link>
         </div>
-     
+      </div>
     </nav>
   );
 }

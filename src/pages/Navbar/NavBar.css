@@ -1,76 +1,33 @@
 /* NavBar.css */
-/* Logo styles */
 .logo {
-  width: 150px;
   height: auto;
 }
 
-/* Home link hover */
-.home:hover {
+.home:hover,
+.animal:hover,
+.dashlink:hover {
   color: orange;
 }
 
-/* Animal link hover */
-.animal:hover {
-  color: orange;
-}
-
-/* Container styles */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Flex layout for responsiveness */
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Navbar link styles */
-.nav-link {
-  color: white;
-  font-size: 18px;
-  text-decoration: none;
-  margin: 5px;
-}
-.dashlink{
-  margin-right: 53%;
-}
-
-/* Search bar in the Navbar */
-.nav-search {
-  display: flex;
-  align-items: center;
-}
-
-/* Responsive adjustments */
-
-/* Tablets and larger screens */
-@media screen and (min-width: 768px) {
-  .nav-link {
-    font-size: 16px;
-  }
-}
-
-/* Desktop screens */
-@media screen and (min-width: 1200px) {
-  .nav-link {
-    font-size: 20px;
-  }
-}
-
-/* Responsive adjustments for smaller screens */
 @media screen and (max-width: 767px) {
-  .dashlink {
-    margin-right: 0;
+  .flex {
+    justify-content: space-around;
   }
 
-  .nav-link {
+  .logo {
+    width: 100px;
+    margin-bottom: 2%;
+  }
+
+  .home,
+  .animal,
+  .dashlink {
     font-size: 14px;
-    margin: 3px;
   }
 }
