@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import Dashboard from './Dashboard/Dashboard';
 import LoginForm from "./Dashboard/Login/LoginForm";
 import RegistrationForm from "./Dashboard/Registration/RegistrationForm";
+import NotFound from "./404Page/notFound";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,6 +33,7 @@ function App() {
           />
           {/* Add a route for '/login' */}
           <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>
